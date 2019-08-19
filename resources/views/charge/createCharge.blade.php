@@ -7,7 +7,7 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         </head>
         <body>
-            <form action="{{url('client/')}}" method="POST" >
+            <form action="{{Route('storeCharge')}}" method="POST" >
                 {{csrf_field()}}
                 <div id="formulario"> 
                     <h1> Registro de producto(Encargo) </h1>
@@ -125,13 +125,14 @@
                 </div>
 
                 <br>
-                <button name="registro" type="submit" id="button"> Registrar Cliente </button>
+                <button name="registro" type="submit" id="button"> Registrar Encargo </button>
 
             </form>
 
-
-
         </body>
+
+        <script src="{{ asset("asset/js/jquery-3.2.1.min.js") }}"></script>
+        <script src="{{ asset("asset/js/scriptApp.js") }}"></script>
 
     </html> 
     @endsection

@@ -1,13 +1,9 @@
-body{
-    background:#000;
-  }
-  
   section.awSlider .carousel{
     display:table;
     z-index:2;
     -moz-box-shadow: 0 0 4px #444;
       -webkit-box-shadow: 0 0 4px #444;
-      box-shadow: 0 0 15px rgba(1,1,1,.5);
+      box-shadow: 0 0 5px rgba(1,1,1,.5);
   }
   
   section.awSlider{

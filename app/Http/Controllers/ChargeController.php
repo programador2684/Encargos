@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\brandModel;
 use App\pieceModel;
 use App\Cliente;
+use App\ChargeModel;
 
 class ChargeController extends Controller
 {
@@ -42,7 +43,15 @@ class ChargeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $charge= new ChargeModel();
+        $charge->marca=$request->input('marca');
+        $charge->linea=$request->input('linea');
+        $charge->modelo=$request->input('modelo');
+        $charge->lado=$request->input('lado');
+        $charge->pieza=$request->input('pieza');
+        $charge->save();
+
+        return redirect()->route('welcome');
     }
 
     /**
@@ -76,7 +85,7 @@ class ChargeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

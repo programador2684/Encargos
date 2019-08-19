@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ asset("asset/css/admin.css") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/list.css") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/careers.css") }}">
-    <link rel="stylesheet" href="{{ asset("asset/css/carrusel.css") }}">
 
 
     <link rel="stylesheet" href="{{ asset("asset/fontawesome-free-5.10.1-web/css/all.css") }}">
@@ -41,13 +40,13 @@
             <a href="#"><span class="menu-item active">Registrar Marca</span></a>
             <a href="#"><span class="menu-item active">Registrar Linea</span></a>
             <a href="#"><span class="menu-item active">Registrar Pieza</span></a>
-            <a href="#"><span class="menu-item active">Registrar Marca De Linea</span></a>
+            <a href="#"><span class="menu-item active">Registrar Marca De Pieza</span></a>
             <a href="#"><span class="menu-item active">Registrar Asesor</span></a>
           @endif
 
     </div>
     <div id="top-menu-right">
-      <a href="#"><span class="menu-item"><i class="fa fa-user-tie" aria-hidden="true"></i>Mi Perfil</span></a>
+      <!--<a href="#"><span class="menu-item"><i class="fa fa-user-tie" aria-hidden="true"></i>Mi Perfil</span></a>-->
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           <span class="menu-item">
               <i class="fas fa-power-off" aria-hidden="true"></i>{{Auth::user()->name}} {{Auth::user()->last_name}}
@@ -78,19 +77,8 @@
   <!-- End Content Area -->
 
 </div>
-
-
-            <script src="{{ asset("asset/js/jquery-3.2.1.min.js") }}"></script>
-            <script src="{{ asset("asset/js/scriptMarcaLinea.js") }}"></script>
-            <script src="{{ asset("asset/js/scriptApp.js") }}"></script>
-
-
-            <!-- Compiled and minified Bootstrap CSS -->
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-          <!-- Minified JS library -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-          <!-- Compiled and minified Bootstrap JavaScript -->
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+      <script src="{{ asset("asset/js/jquery-3.2.1.min.js") }}"></script>
+      <script src="{{ asset("asset/js/scriptApp.js") }}"></script>
               
 </body>
 

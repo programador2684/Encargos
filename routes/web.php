@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('carrusel');
-});
+})->name('welcome');
 
 Auth::routes();
 
