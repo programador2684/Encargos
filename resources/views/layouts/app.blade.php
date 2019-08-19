@@ -9,6 +9,7 @@
   <meta name="author" content="">
 
     <title>ENCARGOS CASA DEL CAUCHO</title>
+    <link rel="shortcut icon" href="{{ asset("asset/logo/logo.png") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/admin.css") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/list.css") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/careers.css") }}">
@@ -42,6 +43,13 @@
             <a href="#"><span class="menu-item active">Registrar Pieza</span></a>
             <a href="#"><span class="menu-item active">Registrar Marca De Pieza</span></a>
             <a href="#"><span class="menu-item active">Registrar Asesor</span></a>
+          @else
+            @if(Auth::user()->role_id_role==200)
+              <a href="#"><span class="menu-item active">Mis Clientes</span></a>
+              <a href="#"><span class="menu-item active">Mis Ventas</span></a>
+              <a href="#"><span class="menu-item active">Pendientes</span></a>
+
+            @endif
           @endif
 
     </div>
