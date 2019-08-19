@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAsesorHasProductoTable extends Migration
+class CreatePiezaTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'asesor_has_producto';
+    public $tableName = 'pieza';
 
     /**
      * Run the migrations.
-     * @table asesor_has_producto
+     * @table pieza
      *
      * @return void
      */
@@ -22,16 +22,19 @@ class CreateAsesorHasProductoTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('asesor_idasesor')->unsigned();
-            $table->integer('producto_id_producto')->unsigned();
+            $table->increments('id_pieza');
+            $table->string('nombre_pieza', 45);
+            $table->unsignedInteger('producto_id_producto')->nullable()->default(null);
 
-            $table->index(["asesor_idasesor"], 'fk_asesor_has_producto_asesor1_idx');
+            $table->index(["producto_id_producto"], 'fk_pieza_producto1_idx');
 
-            $table->index(["producto_id_producto"], 'fk_asesor_has_producto_producto1_idx');
+            $table->unique(["id_pieza"], 'id_pieza_UNIQUE');
+
+            $table->unique(["nombre_pieza"], 'nombre_pieza_UNIQUE');
 
 
-            $table->foreign('asesor_idasesor', 'asesor_has_producto_asesor_idasesor')
-                ->references('idasesor')->on('asesor')
+            $table->foreign('producto_id_producto', 'fk_pieza_producto1_idx')
+                ->references('id_producto')->on('producto')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

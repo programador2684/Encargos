@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersHasClienteTable extends Migration
+class CreatePiezaHasMarcaPiezaTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'users_has_cliente';
+    public $tableName = 'pieza_has_marca_pieza';
 
     /**
      * Run the migrations.
-     * @table users_has_cliente
+     * @table pieza_has_marca_pieza
      *
      * @return void
      */
@@ -22,21 +22,21 @@ class CreateUsersHasClienteTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('users_id')->unsigned();
-            $table->unsignedInteger('cliente_cedula');
+            $table->unsignedInteger('pieza_id_pieza');
+            $table->unsignedInteger('marca_pieza_id_marca_pieza');
 
-            $table->index(["users_id"], 'fk_users_has_cliente_users_idx');
+            $table->index(["marca_pieza_id_marca_pieza"], 'fk_pieza_has_marca_pieza_marca_pieza1_idx');
 
-            $table->index(["cliente_cedula"], 'fk_users_has_cliente_cliente1_idx');
+            $table->index(["pieza_id_pieza"], 'fk_pieza_has_marca_pieza_pieza1_idx');
 
 
-            $table->foreign('cliente_cedula', 'fk_users_has_cliente_cliente1_idx')
-                ->references('cedula')->on('cliente')
+            $table->foreign('marca_pieza_id_marca_pieza', 'fk_pieza_has_marca_pieza_marca_pieza1_idx')
+                ->references('id_marca_pieza')->on('marca_pieza')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('users_id', 'users_has_cliente_users_id')
-                ->references('id')->on('users')
+            $table->foreign('pieza_id_pieza', 'fk_pieza_has_marca_pieza_pieza1_idx')
+                ->references('id_pieza')->on('pieza')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

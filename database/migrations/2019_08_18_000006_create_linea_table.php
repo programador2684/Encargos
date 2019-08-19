@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarcaTable extends Migration
+class CreateLineaTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'marca';
+    public $tableName = 'linea';
 
     /**
      * Run the migrations.
-     * @table marca
+     * @table linea
      *
      * @return void
      */
@@ -22,12 +22,12 @@ class CreateMarcaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id_marca')->unsigned();
-            $table->string('nombre_marca', 45);
+            $table->increments('id_linea');
+            $table->string('nombre_linea', 45);
 
-            $table->unique(["id_marca"], 'id_marca_UNIQUE');
+            $table->unique(["id_linea"], 'id_linea_UNIQUE');
 
-            $table->unique(["nombre_marca"], 'nombre_marca_UNIQUE');
+            $table->unique(["nombre_linea"], 'nombre_linea_UNIQUE');
         });
     }
 

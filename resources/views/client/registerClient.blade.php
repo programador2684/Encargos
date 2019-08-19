@@ -4,31 +4,21 @@
 <html>
     <head>
         <title>Register</title>
-        <link rel="stylesheet" href="{{ asset("asset/css/career.css") }}">
+        <link rel="stylesheet" href="{{ asset("asset/css/register.css") }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <form action="{{Route('register')}}" method="POST">
+        <form action="{{Route('storeClient')}}" method="POST">
             {{csrf_field()}}
             <div id="formulario"> 
-                <h1> Register User </h1>
+                <h1> Registro Del Cliente </h1>
             </div>
             <div id="tabla-formulario">
 
                 <div>
-                    <label for="description">Name</label>
-                    <input placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" type="text"  id="name"  value="{{ old('name') }}" required autocomplete="name" autofocus>
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                
-                <div>
-                    <label for="last_name">Last name</label>
-                    <input placeholder="Last name" class="form-control @error('last_name') is-invalid @enderror" name="last_name" type="text"  id="last_name"  value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>    
-                    @error('last_name')
+                    <label for="nombre">Nombre(s) y Apellidos</label>
+                    <input placeholder="nombre" class="form-control @error('nombre') is-invalid @enderror" name="nombre" type="text"  id="nombre"  value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
+                    @error('nombre')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -36,9 +26,9 @@
                 </div>
 
                 <div>
-                    <label for="identification">Identifaction</label>
-                    <input placeholder="Identification" class="form-control @error('identification') is-invalid @enderror"  name="identification" type="number" id="identification"  value="{{ old('identification') }}" required autocomplete="identification" autofocus>                    
-                    @error('identification')
+                    <label for="cedula">Num. De Documento</label>
+                    <input placeholder="cedula" class="form-control @error('cedula') is-invalid @enderror"  name="cedula" type="number" id="cedula"  value="{{ old('cedula') }}" required autocomplete="cedula" autofocus>                    
+                    @error('cedula')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -46,9 +36,9 @@
                 </div>
 
                 <div>
-                    <label for="Email">Email</label>
-                    <input placeholder="Address email" class="form-control @error('email') is-invalid @enderror" name="email" type="text" id="email"  value="{{ old('email') }}" required autocomplete="email" autofocus>
-                    @error('email')
+                    <label for="correo">Correo Electronico</label>
+                    <input placeholder="Direccion de correo electornico" class="form-control @error('correo') is-invalid @enderror" name="correo" type="text" id="correo"  value="{{ old('correo') }}" required autocomplete="correo" autofocus>
+                    @error('correo')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -56,14 +46,14 @@
                 </div>
 
                 <div>
-                    <label for="password">Password</label>
-                    <input placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" type="password" id="password"  value="{{ old('password') }}" required autocomplete="password" autofocus>
+                    <label for="telefono">Telefono</label>
+                    <input placeholder="telefono" class="form-control @error('telefono') is-invalid @enderror" name="telefono" type="number" id="telefono"  value="{{ old('telefono') }}" required autocomplete="telefono" autofocus>
                 </div>
 
             </div>
 
             <br>
-            <button name="registro" type="submit" id="button"> Register </button>
+            <button name="registro" type="submit" id="button"> Registrar Cliente </button>
 
         </form>
 

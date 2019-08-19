@@ -22,7 +22,7 @@ class CreateProductoHasVentaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('producto_id_producto')->unsigned();
+            $table->unsignedInteger('producto_id_producto');
             $table->unsignedInteger('venta_idventa');
             $table->unsignedInteger('venta_cliente_cedula');
             $table->unsignedInteger('venta_users_id');
@@ -32,13 +32,13 @@ class CreateProductoHasVentaTable extends Migration
             $table->index(["venta_idventa", "venta_cliente_cedula", "venta_users_id"], 'fk_producto_has_venta_venta1_idx');
 
 
-            $table->foreign('producto_id_producto', 'producto_has_venta_producto_id_producto')
-                ->references('id_producto')->on('producto')
+            $table->foreign('venta_idventa', 'fk_producto_has_venta_venta1_idx')
+                ->references('idventa')->on('venta')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('venta_idventa', 'fk_producto_has_venta_venta1_idx')
-                ->references('idventa')->on('venta')
+            $table->foreign('producto_id_producto', 'fk_producto_has_venta_producto1_idx')
+                ->references('id_producto')->on('producto')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

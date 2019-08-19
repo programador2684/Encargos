@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ClientRequest;
+use App\Cliente;
+use App\brandModel;
+use App\pieceModel;
 
-class brandController extends Controller
+class ClienController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +28,7 @@ class brandController extends Controller
      */
     public function create()
     {
-        //
+        return view('client.registerClient');
     }
 
     /**
@@ -32,9 +37,23 @@ class brandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
-        //
+        $client=new Cliente();
+        $client->cedula=$request->input('cedula');
+        $client->nombre=$request->input('nombre');
+        $client->correo=$request->input('correo');
+        $client->telefono=$request->input('telefono');
+        $client->save();
+
+        $brands= brandModel::brands();
+        $pieces= pieceModel::pieces();
+
+        return view('charge.createCharge')
+        ->with('success','El cliente se registro satisfactoriamente')
+        ->with('brands',$brands)
+        ->with('pieces',$pieces)
+        ->with('client',$client);
     }
 
     /**
@@ -81,5 +100,4 @@ class brandController extends Controller
     {
         //
     }
-
 }

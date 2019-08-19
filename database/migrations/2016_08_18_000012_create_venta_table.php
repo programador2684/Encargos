@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductoHasMarca1Table extends Migration
+class CreateVentaTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'producto_has_marca1';
+    public $tableName = 'venta';
 
     /**
      * Run the migrations.
-     * @table producto_has_marca1
+     * @table venta
      *
      * @return void
      */
@@ -22,21 +22,26 @@ class CreateProductoHasMarca1Table extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('producto_id_producto')->unsigned();
-            $table->integer('marca_id_marca')->unsigned();
+            $table->increments('idventa');
+            $table->date('fecha');
+            $table->double('valor_total');
+            $table->unsignedInteger('cliente_cedula');
+            $table->unsignedInteger('users_id');
 
-            $table->index(["producto_id_producto"], 'fk_producto_has_marca1_producto1_idx');
+            $table->index(["users_id"], 'fk_venta_users1_idx');
 
-            $table->index(["marca_id_marca"], 'fk_producto_has_marca1_marca1_idx');
+            $table->index(["cliente_cedula"], 'fk_venta_cliente1_idx');
+
+            $table->unique(["idventa"], 'idventa_UNIQUE');
 
 
-            $table->foreign('producto_id_producto', 'producto_has_marca1_producto_id_producto')
-                ->references('id_producto')->on('producto')
+            $table->foreign('cliente_cedula', 'fk_venta_cliente1_idx')
+                ->references('cedula')->on('cliente')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('marca_id_marca', 'fk_producto_has_marca1_marca1_idx')
-                ->references('id_marca')->on('marca')
+            $table->foreign('users_id', 'fk_venta_users1_idx')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

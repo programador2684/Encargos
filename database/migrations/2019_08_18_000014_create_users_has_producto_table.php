@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePiezaTable extends Migration
+class CreateUsersHasProductoTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'pieza';
+    public $tableName = 'users_has_producto';
 
     /**
      * Run the migrations.
-     * @table pieza
+     * @table users_has_producto
      *
      * @return void
      */
@@ -22,19 +22,21 @@ class CreatePiezaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id_pieza')->unsigned();
-            $table->string('nombre_pieza', 45);
-            $table->unsignedInteger('producto_id_producto')->nullable();
+            $table->unsignedInteger('users_idusers');
+            $table->unsignedInteger('producto_id_producto');
 
-            $table->index(["producto_id_producto"], 'fk_pieza_producto1_idx');
+            $table->index(["producto_id_producto"], 'fk_users_has_producto_producto1_idx');
 
-            $table->unique(["id_pieza"], 'id_pieza_UNIQUE');
-
-            $table->unique(["nombre_pieza"], 'nombre_pieza_UNIQUE');
+            $table->index(["users_idusers"], 'fk_users_has_producto_users1_idx');
 
 
-            $table->foreign('producto_id_producto', 'fk_pieza_producto1_idx')
+            $table->foreign('producto_id_producto', 'fk_users_has_producto_producto1_idx')
                 ->references('id_producto')->on('producto')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+
+            $table->foreign('users_idusers', 'fk_users_has_producto_users1_idx')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

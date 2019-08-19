@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarcaHasLineaTable extends Migration
+class CreateUsersHasClienteTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'marca_has_linea';
+    public $tableName = 'users_has_cliente';
 
     /**
      * Run the migrations.
-     * @table marca_has_linea
+     * @table users_has_cliente
      *
      * @return void
      */
@@ -22,21 +22,21 @@ class CreateMarcaHasLineaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('marca_id_marca')->unsigned();
-            $table->integer('linea_id_linea')->unsigned();
+            $table->increments('users_id');
+            $table->unsignedInteger('cliente_cedula');
 
-            $table->index(["linea_id_linea"], 'fk_marca_has_linea_linea1_idx');
+            $table->index(["users_id"], 'fk_users_has_cliente_users_idx');
 
-            $table->index(["marca_id_marca"], 'fk_marca_has_linea_marca1_idx');
+            $table->index(["cliente_cedula"], 'fk_users_has_cliente_cliente1_idx');
 
 
-            $table->foreign('marca_id_marca', 'marca_has_linea_marca_id_marca')
-                ->references('id_marca')->on('marca')
+            $table->foreign('cliente_cedula', 'fk_users_has_cliente_cliente1_idx')
+                ->references('cedula')->on('cliente')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('linea_id_linea', 'fk_marca_has_linea_linea1_idx')
-                ->references('id_linea')->on('linea')
+            $table->foreign('users_id', 'users_has_cliente_users_id')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

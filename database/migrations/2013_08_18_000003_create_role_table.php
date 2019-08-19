@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLineaTable extends Migration
+class CreateRoleTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'linea';
+    public $tableName = 'role';
 
     /**
      * Run the migrations.
-     * @table linea
+     * @table role
      *
      * @return void
      */
@@ -22,12 +22,13 @@ class CreateLineaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id_linea')->unsigned();
-            $table->string('nombre_linea', 45);
+            $table->increments('id_role');
+            $table->string('name_role', 45);
+            $table->string('description', 45);
 
-            $table->unique(["id_linea"], 'id_linea_UNIQUE');
+            $table->unique(["id_role"], 'id_role_UNIQUE');
 
-            $table->unique(["nombre_linea"], 'nombre_linea_UNIQUE');
+            $table->unique(["name_role"], 'name_role_UNIQUE');
         });
     }
 

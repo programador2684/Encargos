@@ -24,9 +24,7 @@ class CreateRemisionTable extends Migration
             $table->engine = 'InnoDB';
             $table->string('estado', 45);
             $table->string('abono', 45);
-            $table->increments('venta_idventa')->unsigned();
-            $table->unsignedInteger('venta_cliente_cedula');
-            $table->unsignedInteger('venta_users_id');
+            $table->increments('venta_idventa');
         });
     }
 

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\brandModel;
+use App\pieceModel;
+use App\Cliente;
 
-class ClientController extends Controller
+class ChargeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +17,7 @@ class ClientController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -22,7 +27,11 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.registerClient');
+        $brands= brandModel::brands();
+        $pieces= pieceModel::pieces();
+        $client = new Cliente();
+        
+        return view('charge.createCharge')->with('brands',$brands)->with('pieces',$pieces)->with('client',$client);
     }
 
     /**

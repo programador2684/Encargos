@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\lineModel;
 
 class LineController extends Controller
 {
@@ -80,5 +81,12 @@ class LineController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function brandLine(Request $request, $id){
+        if($request->ajax()){
+            $linesBrand=lineModel::linesBrand($id);
+            return response()->json($linesBrand);
+        }
     }
 }

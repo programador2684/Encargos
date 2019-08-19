@@ -20,5 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth']], function(){
-    Route::resource('client/','ClientController');
+    Route::get('client/','ClienController@index')->name('clientIndex');
+    Route::get('client/create','ClienController@create')->name('createClient');
+    Route::post('client/store','ClienController@store')->name('storeClient');
+
+    Route::get('charge/','ChargeController@index')->name('chargeIndex');
+    Route::get('charge/create','ChargeController@create')->name('createCharge');
+    Route::post('charge/store','ChargeController@store')->name('storeCharge');
+
+    Route::get('charge/lines/{id}','LineController@brandLine');
 });

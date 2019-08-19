@@ -10,7 +10,7 @@
 
     <title>ENCARGOS CASA DEL CAUCHO</title>
     <link rel="stylesheet" href="{{ asset("asset/css/admin.css") }}">
-    <link rel="stylesheet" href="{{ asset("asset/css/career.css") }}">
+    <link rel="stylesheet" href="{{ asset("asset/css/list.css") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/careers.css") }}">
 
     <link rel="stylesheet" href="{{ asset("asset/fontawesome-free-5.10.1-web/css/all.css") }}">
@@ -22,23 +22,25 @@
    
 <div id="main-container">
   <!-- Menus -->
-  <a id="logo" href="/">ENCARGOS</a>
+  <a id="logo" href="/">
+    <img src="{{ asset("asset/logo/logo.png") }}" alt="La casa del caucho">
+  </a>
   <div id="top-menu">
   @guest
     <div id="top-menu-right">
       <a href="{{ route('login') }}"><span class="menu-item"><i class="fa fa-user-tie" aria-hidden="true"></i>Login</span></a>
-        <a href="#"><span class="menu-item"><i class="fas fa-power-off" aria-hidden="true"></i>Register</span></a>
       </div>
     </div>
   @else
     <div id="top-menu-left">
-        <a href="client/create"><span class="menu-item active">Register Client</span></a>
-          <a href="#"><span class="menu-item active">Register Brand</span></a>
-          <a href="#"><span class="menu-item active">Register Liner</span></a>
-          <a href="#"><span class="menu-item active">Register Piece</span></a>
-          <a href="#"><span class="menu-item active">Register Brand Line</span></a>
+        <a href="{{Route('createClient')}}"><span class="menu-item active">Registrar Cliente</span></a>
+        <a href="{{Route('createCharge')}}"><span class="menu-item active">Register Encargo</span></a>
           @if(Auth::user()->role_id_role==100)
-            <a href="#"><span class="menu-item active">Register Adviser</span></a>
+            <a href="#"><span class="menu-item active">Registrar Marca</span></a>
+            <a href="#"><span class="menu-item active">Registrar Linea</span></a>
+            <a href="#"><span class="menu-item active">Registrar Pieza</span></a>
+            <a href="#"><span class="menu-item active">Registrar Marca De Linea</span></a>
+            <a href="#"><span class="menu-item active">Registrar Asesor</span></a>
           @endif
 
     </div>
@@ -73,7 +75,9 @@
 
 </div>
 
-<script src="js/jquery-3.2.1.min.js"></script>
+
+            <script src="{{ asset("asset/js/jquery-3.2.1.min.js") }}"></script>
+            <script src="{{ asset("asset/js/scriptMarcaLinea.js") }}"></script>
     
 </body>
 
