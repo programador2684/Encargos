@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Suppor\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class Cliente extends Model
 {
@@ -15,6 +15,10 @@ class Cliente extends Model
 
     public static function listarClientes(){
         return DB::table('cliente')->get();
+    }
+
+    public static function searchCliente($id){
+        return DB::table('cliente')->where('cedula','=',$id)->get();
     }
 
 }

@@ -15,13 +15,13 @@
                 <div id="tabla-formulario">
 
                     <div>
-                        <label for="cedula">Datos del cliente</label>
+                        <label for="cedula"><b>DATOS DEL CIENTE</b></label>
                         @if($client->cedula)
                             <input placeholder="Num. Documento Cliente" class="form-control @error('cedula') is-invalid @enderror" name="cedula" type="number"  id="cedula"  value="{{$client->cedula}}" required autocomplete="cedula" autofocus readonly="true">
                             <input placeholder="Nombre Cliente" class="form-control @error('nombre') is-invalid @enderror" name="nombre" type="String"  id="nombre"  value="{{$client->nombre}}" required autocomplete="nombre" autofocus readonly="true">
                         @else
-                            <input onkeypress="" placeholder="Num. Documento Cliente" class="form-control @error('cedula') is-invalid @enderror" name="cedula" type="number"  id="cedula"  value="{{ old('cedula') }}" required autocomplete="cedula" autofocus>
-                            <input placeholder="Nombre del Cliente" class="form-control @error('cedula') is-invalid @enderror" name="cedula" type="number"  id="cedula"  value="{{$client->nombre}}" required autocomplete="cedula" autofocus readonly="true">
+                            <input placeholder="Num. Documento Cliente" class="form-control @error('searchClient') is-invalid @enderror" name="searchClient" type="number"  id="searchClient"  value="" required autocomplete="searchClient" autofocus>
+                            <input placeholder="Nombre del Cliente" class="form-control @error('searchNombre') is-invalid @enderror" name="searchNombre" type="text"  id="searchNombre"  value="" required autocomplete="searchNombre" autofocus readonly>
                         @endif
                         @error('cedula')
                             <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                     </div>
 
                     <div>
-                        <label for="codigoAsesor">Codigo Asesor</label>
+                        <label for="codigoAsesor"><b>CODIGO ASESOR</b></label>
                         @Auth()
                             <input placeholder="Num. Documento Asesor" class="form-control @error('codigoAsesor') is-invalid @enderror" name="codigoAsesor" type="number"  id="codigoAsesor"  value="0{{Auth::user()->codigoAsesor}}" required autocomplete="codigoAsesor" autofocus readonly="true">
                         @endAuth
@@ -44,7 +44,7 @@
                     </div>
 
                     <div>
-                        <label for="marca">Marca</label>
+                        <label for="marca"><b>MARCA</b></label>
                         <select name="marca" id="marca" class="form-control @error('marca') is-invalid @enderror" required autocomplete="marca" autofocus>
                             <option value="">Seleccione una marca...</option>
                             @if($brands)
@@ -61,7 +61,7 @@
                     </div>
 
                     <div>
-                        <label for="linea">Linea</label>
+                        <label for="linea"><b>LINEA</b></label>
                         <select name="linea" id="linea" class="form-control @error('linea') is-invalid @enderror" required autocomplete="linea" autofocus>
                             <option value="">Seleccione la linea...</option>
                         </select>
@@ -73,7 +73,7 @@
                     </div>
 
                     <div>
-                        <label for="modelo">Modelo</label>
+                        <label for="modelo"><b>MODELO</b></label>
                         <?php $cont = date('Y');?>
                         <select name="modelo" id="modelo" class="form-control @error('modelo') is-invalid @enderror" required autocomplete="modelo" autofocus>
                             <?php while ($cont >= 1950) { ?>
@@ -89,7 +89,7 @@
                     </div>
 
                     <div>
-                        <label for="pieza">Pieza</label>
+                        <label for="pieza"><b>PIEZA</b></label>
                         <select name="pieza" id="pieza" class="form-control @error('pieza') is-invalid @enderror" required autocomplete="pieza" autofocus>
                             <option value="">Seleccione una pieza...</option>
                             @if($pieces)
@@ -106,7 +106,7 @@
                     </div>
 
                     <div>
-                    <label for="lado">Lado</label>
+                    <label for="lado"><b>LADO</b></label>
                         <select name="lado" id="lado" class="form-control @error('lado') is-invalid @enderror" required autocomplete="lado" autofocus>
                             <option value="">Seleccione lado...</option>
                             <option value="izquierdo">Izquierdo</option>

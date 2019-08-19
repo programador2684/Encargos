@@ -29,4 +29,6 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('charge/store','ChargeController@store')->name('storeCharge');
 
     Route::get('charge/lines/{id}','LineController@brandLine');
+    Route::get('charge/searchClient/{id}','HomeController@searchClient');
+
 });

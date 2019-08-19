@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cliente;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,12 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function searchClient(Request $request, $id){
+        if($request->ajax()){
+            $client=Cliente::searchCliente($id);
+            return response()->json($client);
+        }
     }
 }
