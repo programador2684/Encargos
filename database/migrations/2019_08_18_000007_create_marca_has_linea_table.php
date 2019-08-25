@@ -22,8 +22,8 @@ class CreateMarcaHasLineaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('marca_id_marca');
-            $table->unsignedInteger('linea_id_linea');
+            $table->integer('marca_id_marca')->unsigned();
+            $table->integer('linea_id_linea')->unsigned();
 
             $table->index(["linea_id_linea"], 'fk_marca_has_linea_linea1_idx');
 

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClientRequest;
+use Illuminate\Support\Facades\Auth;
 use App\Cliente;
 use App\brandModel;
 use App\pieceModel;
+use App\user_has_client;
 
 class ClienController extends Controller
 {
@@ -39,12 +41,21 @@ class ClienController extends Controller
      */
     public function store(ClientRequest $request)
     {
+        $user=Auth::user();
+
         $client=new Cliente();
         $client->cedula=$request->input('cedula');
         $client->nombre=$request->input('nombre');
         $client->correo=$request->input('correo');
         $client->telefono=$request->input('telefono');
         $client->save();
+
+        if($user){
+            $user_has_client= new user_has_client();
+            $user_has_client->users_id=$user->id;
+            $user_has_client->cliente_cedula=$client->cedula;
+            $user_has_client->save();
+        }
 
         $brands= brandModel::brands();
         $pieces= pieceModel::pieces();

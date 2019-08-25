@@ -418,6 +418,7 @@ class ComposerStaticInita93a85f17deb624c425eca6e2e6f65f8
         'App\\lineModel' => __DIR__ . '/../..' . '/app/lineModel.php',
         'App\\pieceModel' => __DIR__ . '/../..' . '/app/pieceModel.php',
         'App\\piece_has_brandPiece' => __DIR__ . '/../..' . '/app/piece_has_brandPiece.php',
+        'App\\user_has_client' => __DIR__ . '/../..' . '/app/user_has_client.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

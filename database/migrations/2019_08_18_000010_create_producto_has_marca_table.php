@@ -22,8 +22,8 @@ class CreateProductoHasMarcaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('producto_id_producto');
-            $table->unsignedInteger('marca_id_marca');
+            $table->integer('producto_id_producto')->unsigned();
+            $table->integer('marca_id_marca')->unsigned();
 
             $table->index(["producto_id_producto"], 'fk_producto_has_marca_producto1_idx');
 

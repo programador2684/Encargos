@@ -22,8 +22,8 @@ class CreateUsersHasProductoTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('users_idusers');
-            $table->unsignedInteger('producto_id_producto');
+            $table->integer('users_idusers')->unsigned();
+            $table->integer('producto_id_producto')->unsigned();
 
             $table->index(["producto_id_producto"], 'fk_users_has_producto_producto1_idx');
 

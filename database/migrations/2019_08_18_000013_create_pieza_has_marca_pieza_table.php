@@ -22,8 +22,8 @@ class CreatePiezaHasMarcaPiezaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('pieza_id_pieza');
-            $table->unsignedInteger('marca_pieza_id_marca_pieza');
+            $table->integer('pieza_id_pieza')->unsigned();
+            $table->integer('marca_pieza_id_marca_pieza')->unsigned();
 
             $table->index(["marca_pieza_id_marca_pieza"], 'fk_pieza_has_marca_pieza_marca_pieza1_idx');
 

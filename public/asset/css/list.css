@@ -1,57 +1,98 @@
-body{
-    font:1.2em normal Arial,sans-serif;
-    color:#34495E;
-  }
-  
-  h1{
-    text-align:center;
-    text-transform:uppercase;
-    letter-spacing:-2px;
-    font-size:2.5em;
-    margin:20px 0;
-  }
-  
-  #container{
-    width:90%;
-    margin:auto;
-  }
-  
-  table{
-    border-collapse:collapse;
-    width:100%;
-  }
-  
-  table.normal{
-      border:2px solid #45a7b9;
-      text-align: center;
-  }
-  
-  thead{
-    background:#45a7b9;
-    color:white;
-  }
-  
-  th,td{
-    text-align:center;
-    padding:5px 0;
-  }
-  
-  tbody tr:nth-child(even){
-    background:#ECF0F1;
-  }
-  
-  tbody tr:hover{
-  background:#BDC3C7;
-    color:#FFFFFF;
-  }
-  
-  .fixed{
-    top:0;
-    position:fixed;
-    width:auto;
-   display:none;
-  }
-  
-  .end{
-    margin-top:800px;
-  }
+@charset "UTF-8";
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    line-height: 1.42em;
+    color: #4B4A4B;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 1em;
+    text-align: center;
+    color: #45a7b9;
+}
+
+.listado th h1 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.listado td {
+    font-weight: normal;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.listado {
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
+}
+
+.listado td,
+.listado th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+.listado tr:nth-child(odd) {
+    background-color: #EEEAE7;
+}
+
+.listado tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+.listado th {
+    background-color: #374249;
+}
+
+.listado td:first-child {
+    color: #45a7b9;
+}
+
+.listado tr:hover {
+    background-color: #F7C7F7;
+    -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+    -moz-box-shadow: 0 6px 6px -6px #0E1119;
+    box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+td a {
+    color: #4B4A4B;
+}
+
+td a:hover {
+    color: #FFFFFF;
+}
+
+.listado td.iconoEliminar:hover {
+    background-color: #FC1231;
+    box-shadow: #BA0F26 -1px 1px, #BA0F26 -2px 2px, #BA0F26 -3px 3px, #BA0F26 -4px 4px, #BA0F26 -5px 5px, #BA0F26 -6px 6px;
+    transform: translate3d(6px, -6px, 0);
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: line;
+}
+
+.listado td.iconoEditar:hover {
+    background-color: #45a7b9;
+    box-shadow: #45a7b9 -1px 1px, #45a7b9 -2px 2px, #45a7b9 -3px 3px, #45a7b9 -4px 4px, #45a7b9 -5px 5px, rgb(5, 19, 97) -6px 6px;
+    transform: translate3d(6px, -6px, 0);
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-property: all;
+    transition-timing-function: line;
+}

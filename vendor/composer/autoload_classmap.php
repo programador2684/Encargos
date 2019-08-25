@@ -44,6 +44,7 @@ return array(
     'App\\lineModel' => $baseDir . '/app/lineModel.php',
     'App\\pieceModel' => $baseDir . '/app/pieceModel.php',
     'App\\piece_has_brandPiece' => $baseDir . '/app/piece_has_brandPiece.php',
+    'App\\user_has_client' => $baseDir . '/app/user_has_client.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
     'BeyondCode\\DumpServer\\Dumper' => $vendorDir . '/beyondcode/laravel-dump-server/src/Dumper.php',

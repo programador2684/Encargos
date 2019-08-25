@@ -22,10 +22,10 @@ class CreateProductoHasVentaTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('producto_id_producto');
-            $table->unsignedInteger('venta_idventa');
-            $table->unsignedInteger('venta_cliente_cedula');
-            $table->unsignedInteger('venta_users_id');
+            $table->integer('producto_id_producto')->unsigned();
+            $table->integer('venta_idventa')->unsigned();
+            $table->integer('venta_cliente_cedula')->unsigned();
+            $table->integer('venta_users_id')->unsigned();
 
             $table->index(["producto_id_producto"], 'fk_producto_has_venta_producto1_idx');
 

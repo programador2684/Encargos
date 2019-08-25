@@ -31,4 +31,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('charge/lines/{id}','LineController@brandLine');
     Route::get('charge/searchClient/{id}','HomeController@searchClient');
 
+    Route::get('clients/users','HomeController@obtainClientsUser')->name('obtainClientsUser');
+    Route::get('all/clients','HomeController@allClients')->name('allClients');
+
 });

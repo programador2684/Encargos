@@ -22,8 +22,8 @@ class CreateUsersHasClienteTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('users_id');
-            $table->unsignedInteger('cliente_cedula');
+            $table->integer('users_id')->unsigned();
+            $table->integer('cliente_cedula')->unsigned();
 
             $table->index(["users_id"], 'fk_users_has_cliente_users_idx');
 

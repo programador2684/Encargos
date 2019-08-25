@@ -12,7 +12,6 @@
     <link rel="shortcut icon" href="{{ asset("asset/logo/logo.png") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/admin.css") }}">
     <link rel="stylesheet" href="{{ asset("asset/css/list.css") }}">
-    <link rel="stylesheet" href="{{ asset("asset/css/careers.css") }}">
 
 
     <link rel="stylesheet" href="{{ asset("asset/fontawesome-free-5.10.1-web/css/all.css") }}">
@@ -38,14 +37,15 @@
         <a href="{{Route('createClient')}}"><span class="menu-item active">Registrar Cliente</span></a>
         <a href="{{Route('createCharge')}}"><span class="menu-item active">Register Encargo</span></a>
           @if(Auth::user()->role_id_role==100)
+            <a href="{{Route('allClients')}}"><span class="menu-item active">Clientes</span></a>
             <a href="#"><span class="menu-item active">Registrar Marca</span></a>
             <a href="#"><span class="menu-item active">Registrar Linea</span></a>
             <a href="#"><span class="menu-item active">Registrar Pieza</span></a>
             <a href="#"><span class="menu-item active">Registrar Marca De Pieza</span></a>
-            <a href="#"><span class="menu-item active">Registrar Asesor</span></a>
+            <a href="{{Route('register')}}"><span class="menu-item active">Registrar Asesor</span></a>
           @else
             @if(Auth::user()->role_id_role==200)
-              <a href="#"><span class="menu-item active">Mis Clientes</span></a>
+              <a href="{{Route('obtainClientsUser')}}"><span class="menu-item active">Mis Clientes</span></a>
               <a href="#"><span class="menu-item active">Mis Ventas</span></a>
               <a href="#"><span class="menu-item active">Pendientes</span></a>
 
